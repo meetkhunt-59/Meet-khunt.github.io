@@ -2,7 +2,7 @@ import React from 'react';
 
 const MobileNav = ({ isOpen, closeMobileNav }) => {
     return (
-        <div class={`mobile-nav ${isOpen ? 'active' : ''}`}>
+        <div className={`mobile-nav ${isOpen ? 'active' : ''}`}>
             <a href="#home" onClick={closeMobileNav}>Home</a>
             <a href="#about" onClick={closeMobileNav}>About</a>
             <a href="#projects" onClick={closeMobileNav}>Projects</a>

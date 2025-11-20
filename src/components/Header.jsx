@@ -17,23 +17,23 @@ const Header = ({ toggleMobileNav, isMobileNavOpen }) => {
     }, []);
 
     return (
-        <header class={`header ${isScrolled ? 'scrolled' : ''}`}>
-            <div class="container">
-                <nav class="navbar">
-                    <a href="#home" class="logo">Meet Khunt</a>
-                    <div class="nav-links">
+        <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
+            <div className="container">
+                <nav className="navbar">
+                    <a href="#home" className="logo">Meet Khunt</a>
+                    <div className="nav-links">
                         <a href="#home">Home</a>
                         <a href="#about">About</a>
                         <a href="#projects">Projects</a>
                         <a href="#contact">Contact</a>
                     </div>
                     <div
-                        class={`hamburger ${isMobileNavOpen ? 'active' : ''}`}
+                        className={`hamburger ${isMobileNavOpen ? 'active' : ''}`}
                         onClick={toggleMobileNav}
                     >
-                        <div class="line"></div>
-                        <div class="line"></div>
-                        <div class="line"></div>
+                        <div className="line"></div>
+                        <div className="line"></div>
+                        <div className="line"></div>
                     </div>
                 </nav>
             </div>

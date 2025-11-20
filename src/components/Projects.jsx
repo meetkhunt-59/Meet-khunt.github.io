@@ -1,33 +1,57 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const Projects = () => {
+    const projects = [
+        {
+            title: "RakshaGrid",
+            description: "A camera-free, real-time smart home security system using mmWave sensors, privacy-first mapping, and edge AI.",
+            image: "/images/rakshagrid.png",
+            link: "https://github.com/0xDonatHack/Rakshagrid"
+        },
+        {
+            title: "EmroAPI",
+            description: "Generate DST embroidery files from images—automating complex SVG-to-stitch pipelines.",
+            image: "/images/emroapi.jpeg",
+            link: "http://emroapi.mooo.com/"
+        },
+        {
+            title: "LocaData",
+            description: "Privacy-first location data analytics with geospatial pipelines and synthetic mobility data generation.",
+            image: "/images/locadata.png",
+            link: "https://locadata.onrender.com/"
+        }
+    ];
+
     return (
-        <section id="projects" class="section">
-            <div class="container">
-                <h2 class="section-title">Projects</h2>
-                <div class="project-grid">
-                    <div class="project-card">
-                        <img src="/images/rakshagrid.png" alt="RakshaGrid" />
-                        <h3>RakshaGrid</h3>
-                        <p>A camera-free, real-time smart home security system using mmWave sensors, privacy-first
-                            mapping, and edge AI.</p>
-                        <a href="https://github.com/0xDonatHack/Rakshagrid" target="_blank"
-                            rel="noopener noreferrer">View Project</a>
-                    </div>
-                    <div class="project-card">
-                        <img src="/images/emroapi.jpeg" alt="EmroAPI" />
-                        <h3>EmroAPI</h3>
-                        <p>Generate DST embroidery files from images—automating complex SVG-to-stitch pipelines.</p>
-                        <a href="http://emroapi.mooo.com/" target="_blank" rel="noopener noreferrer">View Project</a>
-                    </div>
-                    <div class="project-card">
-                        <img src="/images/locadata.png" alt="LocaData" />
-                        <h3>LocaData</h3>
-                        <p>Privacy-first location data analytics with geospatial pipelines and synthetic mobility data
-                            generation.</p>
-                        <a href="https://locadata.onrender.com/" target="_blank" rel="noopener noreferrer">View
-                            Project</a>
-                    </div>
+        <section id="projects" className="section">
+            <div className="container">
+                <motion.h2
+                    className="section-title"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                >
+                    Projects
+                </motion.h2>
+                <div className="project-grid">
+                    {projects.map((project, index) => (
+                        <motion.div
+                            key={index}
+                            className="project-card"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: index * 0.2 }}
+                            whileHover={{ y: -10 }}
+                        >
+                            <img src={project.image} alt={project.title} />
+                            <h3>{project.title}</h3>
+                            <p>{project.description}</p>
+                            <a href={project.link} target="_blank" rel="noopener noreferrer">View Project</a>
+                        </motion.div>
+                    ))}
                 </div>
             </div>
         </section>

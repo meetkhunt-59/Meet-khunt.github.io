@@ -2,10 +2,10 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer class="footer">
-            <div class="container">
+        <footer className="footer">
+            <div className="container">
                 <p>© 2025 Meet Khunt. All Rights Reserved.</p>
-                <div class="social-links" style={{ marginTop: '20px' }}>
+                <div className="social-links" style={{ marginTop: '20px' }}>
                     <a href="https://github.com/meet-khunt-59" target="_blank" rel="noopener noreferrer">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
                             xmlns="http://www.w3.org/2000/svg">
