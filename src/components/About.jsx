@@ -16,7 +16,7 @@ const About = () => {
                 </motion.h2>
                 <div className="about-content">
                     <motion.img
-                        src="https://images.unsplash.com/photo-1623479322729-28b25c16b011?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                        src="/images/avatar.jpg"
                         alt="About Me"
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}

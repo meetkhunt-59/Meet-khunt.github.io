@@ -20,6 +20,10 @@ body {
     padding: 0;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
@@ -125,6 +129,8 @@ body {
 /* Hero Section */
 .hero {
     min-height: 100vh;
+    /* Fallback */
+    min-height: 100dvh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -162,6 +168,7 @@ body {
     height: 100%;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9));
     z-index: 1;
+    pointer-events: none;
 }
 
 .hero-content {
@@ -374,6 +381,11 @@ body {
 
 /* Mobile */
 @media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 0 20px;
+    }
+
     .nav-links {
         display: none;
     }
