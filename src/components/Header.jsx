@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { HashLink } from 'react-router-hash-link';
 
 const Header = ({ toggleMobileNav, isMobileNavOpen }) => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -20,12 +21,12 @@ const Header = ({ toggleMobileNav, isMobileNavOpen }) => {
         <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
             <div className="container">
                 <nav className="navbar">
-                    <a href="#home" className="logo">Meet Khunt</a>
+                    <HashLink smooth to="/#home" className="logo">Meet Khunt</HashLink>
                     <div className="nav-links">
-                        <a href="#home">Home</a>
-                        <a href="#about">About</a>
-                        <a href="#projects">Projects</a>
-                        <a href="#contact">Contact</a>
+                        <HashLink smooth to="/#home">Home</HashLink>
+                        <HashLink smooth to="/#about">About</HashLink>
+                        <HashLink smooth to="/#projects">Projects</HashLink>
+                        <HashLink smooth to="/#contact">Contact</HashLink>
                     </div>
                     <div
                         className={`hamburger ${isMobileNavOpen ? 'active' : ''}`}

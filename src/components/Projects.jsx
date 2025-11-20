@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Projects = () => {
     const projects = [
@@ -7,7 +8,8 @@ const Projects = () => {
             title: "RakshaGrid",
             description: "A camera-free, real-time smart home security system using mmWave sensors, privacy-first mapping, and edge AI.",
             image: "/images/rakshagrid.png",
-            link: "https://github.com/0xDonatHack/Rakshagrid"
+            link: "/rakshagrid",
+            isInternal: true
         },
         {
             title: "EmroAPI",
@@ -49,7 +51,11 @@ const Projects = () => {
                             <img src={project.image} alt={project.title} />
                             <h3>{project.title}</h3>
                             <p>{project.description}</p>
-                            <a href={project.link} target="_blank" rel="noopener noreferrer">View Project</a>
+                            {project.isInternal ? (
+                                <Link to={project.link}>View Project</Link>
+                            ) : (
+                                <a href={project.link} target="_blank" rel="noopener noreferrer">View Project</a>
+                            )}
                         </motion.div>
                     ))}
                 </div>

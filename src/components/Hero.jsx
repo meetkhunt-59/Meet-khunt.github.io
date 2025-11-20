@@ -1,5 +1,7 @@
-import React from 'react';
 import { motion } from 'framer-motion';
+import { HashLink } from 'react-router-hash-link';
+
+const MotionHashLink = motion(HashLink);
 
 const Hero = () => {
     return (
@@ -21,24 +23,28 @@ const Hero = () => {
                 >
                     Building privacy-first smart homes, AI pipelines & embroidery APIs.
                 </motion.p>
-                <motion.a
-                    href="#projects"
-                    className="cta-button"
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
                 >
-                    See My Work
-                </motion.a>
+                    <MotionHashLink
+                        smooth
+                        to="/#projects"
+                        className="cta-button"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        See My Work
+                    </MotionHashLink>
+                </motion.div>
             </div>
-            <a href="#about" className="scroll-down">
+            <HashLink smooth to="/#about" className="scroll-down">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="white" strokeWidth="2" strokeLinecap="round"
                         strokeLinejoin="round" />
                 </svg>
-            </a>
+            </HashLink>
         </section>
     );
 };

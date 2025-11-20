@@ -1,16 +1,15 @@
 import { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async'
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/react"
 import Header from './components/Header'
 import MobileNav from './components/MobileNav'
-import Hero from './components/Hero'
-import About from './components/About'
-import Projects from './components/Projects'
-import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import SEO from './components/SEO'
+import Home from './pages/Home';
+import RakshaGrid from './pages/RakshaGrid';
 
 function App() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -25,21 +24,23 @@ function App() {
 
   return (
     <HelmetProvider>
-      <SEO />
-      <Header toggleMobileNav={toggleMobileNav} isMobileNavOpen={isMobileNavOpen} />
-      <MobileNav isOpen={isMobileNavOpen} closeMobileNav={closeMobileNav} />
-      <main>
-        <Hero />
-        <About />
-        <Projects />
-        <Contact />
-      </main>
-      <Footer />
-      <ScrollToTop />
-      <Analytics />
-      <SpeedInsights />
+      <Router>
+        <SEO />
+        <Header toggleMobileNav={toggleMobileNav} isMobileNavOpen={isMobileNavOpen} />
+        <MobileNav isOpen={isMobileNavOpen} closeMobileNav={closeMobileNav} />
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/rakshagrid" element={<RakshaGrid />} />
+        </Routes>
+
+        <Footer />
+        <ScrollToTop />
+        <Analytics />
+        <SpeedInsights />
+      </Router>
     </HelmetProvider>
-  )
+  );
 }
 
 export default App
