@@ -1,18 +1,18 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
-const SEO = () => {
-    const siteTitle = "Meet Khunt – Tech Innovator";
-    const siteDescription = "Meet Khunt is the founder of RakshaGrid & EmroAPI, building privacy-first IoT systems, edge AI solutions, and embroidery automation tools.";
-    const siteUrl = "https://meetkhunt.vercel.app/";
-    const siteImage = "https://meetkhunt.vercel.app/images/banner.jpg"; // Assuming banner.jpg is accessible here
+const SEO = ({ title, description, url, image, type = 'website', jsonLd }) => {
+    const siteTitle = title ? `${title} | Meet Khunt` : "Meet Khunt – Tech Innovator";
+    const siteDescription = description || "Meet Khunt is the founder of RakshaGrid & EmroAPI, building privacy-first IoT systems, edge AI solutions, and embroidery automation tools.";
+    const siteUrl = url || "https://meetkhunt.vercel.app/";
+    const siteImage = image || "https://meetkhunt.vercel.app/images/banner.jpg";
     const twitterHandle = "@meetkhunt_59";
 
-    const jsonLd = {
+    const defaultJsonLd = {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Meet Khunt",
-        "url": siteUrl,
+        "url": "https://meetkhunt.vercel.app/",
         "image": "https://images.unsplash.com/photo-1623479322729-28b25c16b011?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
         "sameAs": [
             "https://www.linkedin.com/in/meetkhunt59",
@@ -32,9 +32,11 @@ const SEO = () => {
                 "url": "http://emroapi.mooo.com/"
             }
         ],
-        "description": siteDescription,
+        "description": "Meet Khunt is the founder of RakshaGrid & EmroAPI, building privacy-first IoT systems, edge AI solutions, and embroidery automation tools.",
         "knowsAbout": ["IoT", "Edge AI", "React", "Privacy-first Systems", "Embroidery Automation", "Synthetic Data"]
     };
+
+    const structuredData = jsonLd || defaultJsonLd;
 
     return (
         <Helmet>
@@ -46,7 +48,7 @@ const SEO = () => {
             <link rel="canonical" href={siteUrl} />
 
             {/* Open Graph / Facebook */}
-            <meta property="og:type" content="website" />
+            <meta property="og:type" content={type} />
             <meta property="og:url" content={siteUrl} />
             <meta property="og:title" content={siteTitle} />
             <meta property="og:description" content={siteDescription} />
@@ -62,7 +64,7 @@ const SEO = () => {
 
             {/* JSON-LD for AI and Search Engines */}
             <script type="application/ld+json">
-                {JSON.stringify(jsonLd)}
+                {JSON.stringify(structuredData)}
             </script>
         </Helmet>
     );

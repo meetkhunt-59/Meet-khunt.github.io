@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
+import SEO from '../components/SEO';
 
 const RakshaGrid = () => {
     // Scroll to top on mount
@@ -10,13 +10,12 @@ const RakshaGrid = () => {
 
     return (
         <>
-            <Helmet>
-                <title>RakshaGrid - Privacy-First Smart Home Safety | Meet Khunt</title>
-                <meta name="description" content="RakshaGrid is a camera-free, privacy-first home safety system using mmWave sensors to detect falls, intruders, and behavior patterns without surveillance." />
-                <meta property="og:title" content="RakshaGrid - Smart Home Awareness Without Cameras" />
-                <meta property="og:description" content="Discover RakshaGrid: The privacy-first safety system that protects your home using mmWave technology, not cameras." />
-                <meta property="og:image" content="https://meetkhunt.vercel.app/images/rakshagrid_hero.png" />
-            </Helmet>
+            <SEO
+                title="RakshaGrid - Privacy-First Smart Home Safety"
+                description="RakshaGrid is a camera-free, privacy-first home safety system using mmWave sensors to detect falls, intruders, and behavior patterns without surveillance."
+                image="https://meetkhunt.vercel.app/images/rakshagrid_hero.png"
+                url="https://meetkhunt.vercel.app/rakshagrid"
+            />
 
             <main className="rakshagrid-page">
                 {/* Hero Section */}

@@ -10,6 +10,8 @@ import ScrollToTop from './components/ScrollToTop'
 import SEO from './components/SEO'
 import Home from './pages/Home';
 import RakshaGrid from './pages/RakshaGrid';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 
 function App() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -32,6 +34,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/rakshagrid" element={<RakshaGrid />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
         </Routes>
 
         <Footer />

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 
 const Header = ({ toggleMobileNav, isMobileNavOpen }) => {
@@ -26,6 +27,7 @@ const Header = ({ toggleMobileNav, isMobileNavOpen }) => {
                         <HashLink smooth to="/#home">Home</HashLink>
                         <HashLink smooth to="/#about">About</HashLink>
                         <HashLink smooth to="/#projects">Projects</HashLink>
+                        <Link to="/blog">Blog</Link>
                         <HashLink smooth to="/#contact">Contact</HashLink>
                     </div>
                     <div
