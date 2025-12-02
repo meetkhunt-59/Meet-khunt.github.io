@@ -40,6 +40,9 @@ const SEO = ({ title, description, url, image, type = 'website', jsonLd }) => {
 
     return (
         <Helmet>
+            {/* Google tag (gtag.js) */}
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-JRW1CKSDP4"></script>
+            <script>{`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-JRW1CKSDP4');`}</script>
             {/* Standard Meta Tags */}
             <title>{siteTitle}</title>
             <meta name="description" content={siteDescription} />
