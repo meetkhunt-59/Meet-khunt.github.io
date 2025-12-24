@@ -16,17 +16,19 @@ const Blog = () => {
                 url="https://meetkhunt.vercel.app/blog"
             />
 
-            <section className="blog-section container">
+            <section className="blog-section container" style={{ paddingTop: '100px', paddingBottom: '80px' }}>
                 <MotionDiv
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="blog-header"
+                    className="blog-header mb-12"
                 >
-                    <h1>My Blog</h1>
-                    <p>
-                        Thoughts, tutorials, and insights on web development and technology.
-                    </p>
+                    <div className="content-box text-center">
+                        <h1 className="section-title text-center" style={{ margin: '0 auto 1rem auto' }}>My Blog</h1>
+                        <p className="text-secondary max-w-2xl mx-auto">
+                            Thoughts, tutorials, and insights on web development and technology.
+                        </p>
+                    </div>
                 </MotionDiv>
 
                 <div className="blog-grid">

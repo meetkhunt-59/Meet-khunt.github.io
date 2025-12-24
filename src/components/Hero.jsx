@@ -4,47 +4,93 @@ import { HashLink } from 'react-router-hash-link';
 const MotionHashLink = motion(HashLink);
 
 const Hero = () => {
+    // New simplified heading
+    const text = "Meet Khunt";
+    const letters = Array.from(text);
+
+    const container = {
+        hidden: { opacity: 0 },
+        visible: (i = 1) => ({
+            opacity: 1,
+            transition: { staggerChildren: 0.08, delayChildren: 0.04 * i },
+        }),
+    };
+
+    const child = {
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: "spring",
+                damping: 12,
+                stiffness: 100,
+            },
+        },
+        hidden: {
+            opacity: 0,
+            y: 10,
+        },
+    };
+
     return (
         <section id="home" className="hero">
-            <div className="hero-bg"></div>
-            <div className="hero-overlay"></div>
-            <div className="hero-content">
-                <motion.h1
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                >
-                    Code. Create. Innovate.
-                </motion.h1>
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                >
-                    Building privacy-first smart homes, AI pipelines & embroidery APIs.
-                </motion.p>
+            <div className="container hero-content">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    className="mb-6"
+                    variants={container}
+                    initial="hidden"
+                    animate="visible"
+                >
+                    <h1 className="hero-title">
+                        <span className="highlight mr-2 text-3xl align-middle">^</span>
+                        {letters.map((letter, index) => (
+                            <motion.span variants={child} key={index} style={{ display: 'inline-block' }}>
+                                {letter === " " ? "\u00A0" : letter}
+                            </motion.span>
+                        ))}
+                    </h1>
+                </motion.div>
+
+                <motion.p
+                    initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
+                    transition={{ duration: 0.6, delay: 0.8 }}
+                    className="hero-intro font-mono"
+                >
+                    I’m a builder at heart who likes turning messy ideas into systems that actually work.
+                    I work on privacy-first real-time systems, AI-driven automation, and data pipelines.
+                    My focus is on solving real problems—detecting patterns, automating workflows, and designing tools that help people make better decisions.
+                    <br /><br />
+                    I care about fundamentals, clarity, and shipping things that hold up in the real world.
+                </motion.p>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 1 }}
+                    className="hero-actions"
                 >
                     <MotionHashLink
                         smooth
                         to="/#projects"
-                        className="cta-button"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+                        className="btn btn-primary font-mono"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
                     >
-                        See My Work
+                        View Work
+                    </MotionHashLink>
+                    <MotionHashLink
+                        smooth
+                        to="/#contact"
+                        className="btn btn-outline font-mono"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                    >
+                        Contact Me
                     </MotionHashLink>
                 </motion.div>
             </div>
-            <HashLink smooth to="/#about" className="scroll-down">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="white" strokeWidth="2" strokeLinecap="round"
-                        strokeLinejoin="round" />
-                </svg>
-            </HashLink>
+            {/* Scroll Down is often redundant in modern compact UIs, but kept subtle if needed, removed for now to reduce noise */}
         </section>
     );
 };

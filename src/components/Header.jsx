@@ -22,7 +22,7 @@ const Header = ({ toggleMobileNav, isMobileNavOpen }) => {
         <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
             <div className="container">
                 <nav className="navbar">
-                    <HashLink smooth to="/#home" className="logo">Meet Khunt</HashLink>
+                    <HashLink smooth to="/#home" className="logo font-mono">~/meet_khunt</HashLink>
                     <div className="nav-links">
                         <HashLink smooth to="/#home">Home</HashLink>
                         <HashLink smooth to="/#about">About</HashLink>
