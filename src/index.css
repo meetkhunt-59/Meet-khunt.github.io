@@ -785,3 +785,303 @@ p {
         justify-content: center;
     }
 }
+
+/* Bento Grid Layout System */
+.bento-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+@media (min-width: 768px) {
+    .bento-grid {
+        grid-template-columns: repeat(12, 1fr);
+    }
+    
+    .bento-col-12 { grid-column: span 12; }
+    .bento-col-8 { grid-column: span 8; }
+    .bento-col-7 { grid-column: span 7; }
+    .bento-col-5 { grid-column: span 5; }
+    .bento-col-4 { grid-column: span 4; }
+}
+
+.bento-card {
+    background-color: var(--surface-color);
+    border: 1px solid var(--surface-border);
+    border-radius: 16px;
+    padding: 32px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.bento-card:hover {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+.bento-card-dark {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    color: #f8fafc;
+}
+
+.bento-card-dark h4, .bento-card-dark h5, .bento-card-dark h6, .bento-card-dark strong {
+    color: #ffffff;
+}
+
+.bento-card-dark p, .bento-card-dark li {
+    color: #cbd5e1;
+}
+
+.bento-card-subtle {
+    background-color: #f8fafc;
+}
+
+.bento-tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.bento-tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background-color: var(--surface-color);
+    color: var(--text-secondary);
+    border: 1px solid var(--surface-border);
+}
+
+.bento-flex-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Timeline Custom Styles */
+.timeline-hero-title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 24px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.timeline-hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    display: block;
+    margin-top: 4px;
+}
+
+.timeline-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.timeline-list {
+    list-style: none;
+    padding: 0;
+}
+
+.timeline-list li {
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.timeline-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--text-tertiary);
+}
+
+.bento-card-dark .timeline-list li::before {
+     background-color: #64748b;
+}
+
+/* Icon alignments */
+.icon-heading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Journey Container Responsive */
+.journey-container {
+    border: 1px solid var(--surface-border);
+    padding: 50px;
+    background-color: #ffffff;
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 16px;
+    position: relative;
+}
+
+.journey-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--surface-border);
+    padding-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.journey-title-container h3 {
+    font-size: 1.875rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.journey-title-container p {
+    color: var(--text-secondary);
+    margin-top: 8px;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.journey-nav-btn {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--surface-border);
+    border-radius: 50%;
+    background-color: transparent;
+    transition: all 0.2s;
+    outline: none;
+    cursor: pointer;
+    color: var(--text-primary);
+}
+
+.journey-nav-btn:not(:disabled):hover {
+    background-color: #f8fafc;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.journey-nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* Modifiers for Bento */
+.bento-card-hero {
+    padding: 60px;
+}
+
+/* Slide Indicators */
+.slide-indicators-container {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 48px;
+    margin-bottom: 8px;
+}
+
+.slide-indicator {
+    height: 10px;
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.slide-indicator.active {
+    width: 40px;
+    background-color: #1e293b;
+}
+
+.slide-indicator.inactive {
+    width: 10px;
+    background-color: #cbd5e1;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .journey-container {
+        padding: 24px;
+    }
+    
+    .journey-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    
+    .bento-card {
+        padding: 24px;
+    }
+    
+    .bento-card-hero {
+        padding: 32px;
+    }
+    
+    .timeline-hero-title {
+        font-size: 1.5rem;
+    }
+
+    .journey-title-container h3 {
+        font-size: 1.5rem;
+    }
+
+    .slide-indicators-container {
+        margin-top: 32px;
+    }
+
+    /* Long paragraph scroll container */
+    .timeline-text {
+        max-height: 220px;
+        overflow-y: auto;
+        padding-right: 12px;
+        /* Smooth scrolling for mobile */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Custom scrollbar for mobile cards to maintain premium look */
+    .timeline-text::-webkit-scrollbar {
+        width: 4px;
+    }
+    
+    .timeline-text::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    
+    .timeline-text::-webkit-scrollbar-thumb {
+        background-color: var(--surface-border);
+        border-radius: 4px;
+    }
+
+    .bento-card-dark .timeline-text::-webkit-scrollbar-thumb {
+        background-color: #475569;
+    }
+
+    /* Keep the blur decorations from overflowing screen width */
+    .bento-card-dark > div[style*="blur"] {
+        right: -50px !important;
+        margin-right: 0 !important;
+        width: 250px !important;
+        height: 250px !important;
+    }
+}
