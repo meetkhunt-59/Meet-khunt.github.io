@@ -1,26 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-    /* Premium Clean Theme Palette */
-    --primary-color: #007aff;
-    /* System Blue - cleaner, sharper */
-    --primary-hover: #0056b3;
-    --background-color: #fafafa;
-    /* Slightly off-white for less harshness */
+    /* Minimalist Normal Aesthetic Palette */
+    --primary-color: #222222;
+    --primary-hover: #000000;
+    --background-color: #F8F8F5; /* Dim warm cream background */
     --surface-color: #ffffff;
-    --surface-border: #e4e4e7;
-    /* Zinc 200 */
+    --surface-border: #eaeaea;
 
-    --text-primary: #18181b;
-    /* Zinc 900 */
-    --text-secondary: #52525b;
-    /* Zinc 600 */
+    --text-primary: #222222;
+    --text-secondary: #7b7b7b;
     --text-tertiary: #a1a1aa;
-    /* Zinc 400 */
-    --text-mono: #27272a;
-    /* Zinc 800 */
+    --text-mono: #222222;
 
-    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 
     /* Glassmorphism - Refined */
@@ -45,16 +38,10 @@
 
 body {
     background-color: var(--background-color);
-    /* Subtle grain/grid pattern */
-    background-image:
-        linear-gradient(var(--surface-border) 1px, transparent 1px),
-        linear-gradient(90deg, var(--surface-border) 1px, transparent 1px);
-    background-size: 40px 40px;
-    background-position: center top;
     color: var(--text-primary);
     font-family: var(--font-sans);
     overflow-x: hidden;
-    line-height: 1.5;
+    line-height: 1.6;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
 }
@@ -66,9 +53,9 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
 }
 
 h1 {
@@ -200,17 +187,40 @@ p {
 }
 
 .hero-content {
-    max-width: 800px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    max-width: 1000px;
     margin: 0 auto;
     text-align: left;
-    /* Cleaner than center alignment often */
+}
+
+.hero-text-col {
+    flex: 1;
+}
+
+.hero-image-col {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-avatar {
+    width: 100%;
+    max-width: 400px;
+    object-fit: cover;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08); /* Dim shadow */
+    border-radius: var(--border-radius);
 }
 
 /* Hero specific typography moved to Component CSS or here if consistent */
 .hero-title {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-    line-height: 1.1;
+    font-size: clamp(4rem, 10vw, 7rem);
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    margin-bottom: 1rem;
+    line-height: 1;
 }
 
 .hero-intro {
@@ -345,13 +355,12 @@ p {
     font-weight: 500;
 }
 
-/* Footer - Premium */
+/* Footer - Minimalist */
 .footer {
     padding: 60px 0 40px;
     border-top: 1px solid var(--surface-border);
     text-align: center;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.8));
-    backdrop-filter: blur(10px);
+    background: var(--surface-color);
     margin-top: 80px;
 }
 
@@ -384,7 +393,7 @@ p {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
+    background: var(--background-color);
     border: 1px solid var(--surface-border);
 }
 
@@ -487,10 +496,6 @@ p {
 
 .blog-card {
     background-color: var(--surface-color);
-    background-image:
-        linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-    background-size: 20px 20px;
     border: 1px solid var(--surface-border);
     border-radius: var(--border-radius);
     overflow: hidden;
@@ -499,7 +504,7 @@ p {
     flex-direction: column;
     height: 100%;
     position: relative;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    box-shadow: none;
 }
 
 .blog-card:hover {
@@ -668,8 +673,19 @@ p {
     }
 
     .hero-content {
+        flex-direction: column;
         text-align: center;
         padding: 0 10px;
+    }
+
+    .hero-image-col {
+        order: -1; /* Move image to top on mobile */
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .hero-avatar {
+        max-width: 250px;
     }
 
     .hero-intro {
