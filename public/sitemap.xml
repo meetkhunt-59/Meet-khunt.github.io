@@ -3,21 +3,21 @@
 
   <url>
     <loc>https://meetkhunt.vercel.app</loc>
-    <lastmod>2025-11-24</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://meetkhunt.vercel.app/rakshagrid</loc>
-    <lastmod>2025-11-24</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://meetkhunt.vercel.app/blog</loc>
-    <lastmod>2025-11-24</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -25,14 +25,21 @@
 
   <url>
     <loc>https://meetkhunt.vercel.app/blog/welcome-to-my-portfolio</loc>
-    <lastmod>2025-11-24</lastmod>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://meetkhunt.vercel.app/blog/understanding-react-hooks</loc>
-    <lastmod>2025-11-24</lastmod>
+    <loc>https://meetkhunt.vercel.app/blog/ai-agents-complete-guide-autonomous-artificial-intelligence</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://meetkhunt.vercel.app/blog/human-body-surface-mapping-technology</loc>
+    <lastmod>2026-05-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
