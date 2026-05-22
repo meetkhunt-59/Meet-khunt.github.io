@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 
+@font-face {
+    font-family: 'Geronimo';
+    src: url('/fonts/RepetitionScrolling.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     /* Minimalist Normal Aesthetic Palette */
     --primary-color: #222222;
@@ -122,6 +130,7 @@ p {
 }
 
 .logo {
+    font-family: 'Geronimo', var(--font-sans);
     font-size: 1.25rem;
     font-weight: 600;
     color: var(--text-primary);
@@ -178,6 +187,7 @@ p {
 }
 
 .mobile-nav a {
+    font-family: 'Geronimo', var(--font-sans);
     color: var(--text-primary);
     text-decoration: none;
     font-size: 1.5rem;
@@ -226,11 +236,13 @@ p {
 
 /* Hero specific typography moved to Component CSS or here if consistent */
 .hero-title {
+    font-family: 'Geronimo', var(--font-sans);
     font-size: clamp(4rem, 10vw, 7rem);
     font-weight: 400;
     letter-spacing: -0.04em;
     margin-bottom: 1rem;
     line-height: 1;
+    font-size-adjust: from-font;
 }
 
 .hero-intro {
