@@ -636,7 +636,7 @@ Human body surface mapping technology represents a significant leap forward in c
 
 The key to successful implementation lies in understanding the underlying architecture, optimizing for your specific use case, and staying current with the rapidly evolving research landscape.
     `,
-        tags: ["Computer Vision", "AI", "Body Tracking", "3D Mapping", "Deep Learning", "Human Pose Estimation"],
+        tags: ["Computer Vision", "AI", "Body Tracking", "2D Mapping", "Deep Learning", "Human Pose Estimation"],
         coverImage: "https://images.unsplash.com/photo-1535378917042-10a22c95931a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
     }
 ];

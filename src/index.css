@@ -944,9 +944,7 @@ p {
 
 /* Journey Container Responsive */
 .journey-container {
-    border: 1px solid var(--surface-border);
     padding: 50px;
-    background-color: #ffffff;
     max-width: 1000px;
     margin: 0 auto;
     border-radius: 0px;

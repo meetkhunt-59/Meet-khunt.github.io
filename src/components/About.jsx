@@ -8,18 +8,6 @@ const About = () => {
     const nextSlide = () => setCurrentSlide((prev) => Math.min(prev + 1, 2));
     const prevSlide = () => setCurrentSlide((prev) => Math.max(prev - 1, 0));
 
-    const skills = {
-        name: "Meet Khunt",
-        role: "Founder & Full Stack Dev",
-        stack: [
-            "React / Tailwind",
-            "Python / Edge AI",
-            "IoT / mmWave",
-            "PostgreSQL"
-        ],
-        focus: "Privacy-first Innovation"
-    };
-
     return (
         <section id="about" className="section">
             <div className="container">
@@ -131,10 +119,10 @@ const About = () => {
                                                             Key Learnings
                                                         </h5>
                                                         <ul className="timeline-list" style={{ position: 'relative', zIndex: 10 }}>
-                                                            <li>Web security & OWASP vulnerabilities</li>
-                                                            <li>Hands-on penetration testing</li>
-                                                            <li>Networking & web traffic analysis</li>
-                                                            <li>Web development fundamentals</li>
+                                                            <li><b>Web security & OWASP vulnerabilities</b></li>
+                                                            <li><b>Hands-on penetration testing</b></li>
+                                                            <li><b>Networking & web traffic analysis</b></li>
+                                                            <li><b>Web development fundamentals</b></li>
                                                         </ul>
                                                     </div>
 

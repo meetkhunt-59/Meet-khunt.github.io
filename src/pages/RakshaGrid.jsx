@@ -158,7 +158,7 @@ const RakshaGrid = () => {
                                 RakshaGrid turns your home into an intelligent, camera-free safety grid that protects your family without watching them.
                             </p>
                             <a
-                                href="https://github.com/meet-khunt-59"
+                                href="https://github.com/meetkhunt-59"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="btn btn-primary"
