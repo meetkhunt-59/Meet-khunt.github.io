@@ -26,7 +26,6 @@ function App() {
 
   return (
     <HelmetProvider>
-      <div className="halftone-overlay"></div>
       <Router>
         <SEO />
         <Header toggleMobileNav={toggleMobileNav} isMobileNavOpen={isMobileNavOpen} />

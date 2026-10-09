@@ -1,283 +1,202 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { a } from 'framer-motion/client';
+import React from 'react';
+// eslint-disable-next-line no-unused-vars
+import { motion } from 'framer-motion';
 
 const About = () => {
-    const [currentSlide, setCurrentSlide] = useState(0);
-
-    const nextSlide = () => setCurrentSlide((prev) => Math.min(prev + 1, 2));
-    const prevSlide = () => setCurrentSlide((prev) => Math.max(prev - 1, 0));
-
     return (
-        <section id="about" className="section">
-            <div className="container">
-                <div className="content-box">
-                    <motion.h2
-                        className="section-title text-center mb-8"
-                        style={{ textAlign: 'center' }}
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+        <section id="about" className="py-24 relative border-t-arch bg-[var(--color-arch-bg)]">
+            <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
+                
+                <div className="mb-20 flex justify-between items-end border-b-arch pb-4">
+                    <motion.h2 
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
+                        className="text-4xl md:text-6xl font-bold tracking-tighter uppercase text-[var(--color-arch-charcoal)]"
                     >
-                        About Me
+                        Operator <br/><span className="text-outline-charcoal text-[var(--color-arch-bg)]">Profile</span>
                     </motion.h2>
-                    <div className="about-layout">
-                        <motion.div
-                            className="about-image"
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            <img
-                                src="/images/avatar.jpg"
-                                alt="Meet Khunt"
-                                className="rounded-none shadow-lg w-full object-cover"
-                                style={{ maxHeight: '350px' }}
-                            />
-                        </motion.div>
-                        <motion.div
-                            className="about-text"
-                            initial={{ opacity: 0, x: 20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            <p className="text-base text-secondary leading-relaxed">
-                                I’m a passionate developer and founder who loves building things that matter.
-                                My journey sits at the intersection of hardware and software—transforming raw sensor data into meaningful insights.
-                            </p>
-                        </motion.div>
-                    </div>
+                    <span className="font-mono text-xs uppercase hidden md:block">SYS_ID // MK</span>
+                </div>
 
-                    <motion.div
-                        className="mt-10"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                <div className="flex flex-col md:flex-row gap-16 mb-32">
+                    <motion.div 
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="w-full md:w-1/3 relative group"
                     >
-                        <div className="journey-container">
-                            {/* Header & Navigation */}
-                            <div className="journey-header">
-                                <div className="journey-title-container">
-                                    <h3>My Journey</h3>
-                                    <p>2022 — Present</p>
-                                </div>
-                                <div style={{ display: 'flex', gap: '12px' }}>
-                                    <button 
-                                        onClick={prevSlide}
-                                        disabled={currentSlide === 0}
-                                        className="journey-nav-btn"
-                                        aria-label="Previous timeline phase"
-                                    >
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-                                    </button>
-                                    <button 
-                                        onClick={nextSlide}
-                                        disabled={currentSlide === 2}
-                                        className="journey-nav-btn"
-                                        aria-label="Next timeline phase"
-                                    >
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-                                    </button>
+                        {/* SVG Filter Definition for Architectural Cyanotype (Ink-Blue Shadows & Cream Highlights) */}
+                        <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true" focusable="false">
+                            <defs>
+                                <filter id="arch-cyanotype" colorInterpolationFilters="sRGB">
+                                    <feColorMatrix
+                                        type="matrix"
+                                        values="0.2126 0.7152 0.0722 0 0
+                                                0.2126 0.7152 0.0722 0 0
+                                                0.2126 0.7152 0.0722 0 0
+                                                0      0      0      1 0"
+                                    />
+                                    <feComponentTransfer colorInterpolationFilters="sRGB">
+                                        <feFuncR type="table" tableValues="0.102 0.976" />
+                                        <feFuncG type="table" tableValues="0.302 0.973" />
+                                        <feFuncB type="table" tableValues="0.839 0.953" />
+                                    </feComponentTransfer>
+                                </filter>
+                            </defs>
+                        </svg>
+
+                        {/* Architectural Image Container */}
+                        <div className="border-arch p-2 bg-[var(--color-arch-bg)] relative z-10 transition-transform duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1">
+                            {/* Corner Registration Anchors */}
+                            <div className="absolute top-0 left-0 w-2.5 h-2.5 bg-[var(--color-arch-blue)] -translate-x-1/2 -translate-y-1/2 transition-all duration-300 group-hover:scale-125 group-hover:bg-[var(--color-arch-charcoal)]"></div>
+                            <div className="absolute top-0 right-0 w-2.5 h-2.5 bg-[var(--color-arch-blue)] translate-x-1/2 -translate-y-1/2 transition-all duration-300 group-hover:scale-125 group-hover:bg-[var(--color-arch-charcoal)]"></div>
+                            <div className="absolute bottom-0 left-0 w-2.5 h-2.5 bg-[var(--color-arch-blue)] -translate-x-1/2 translate-y-1/2 transition-all duration-300 group-hover:scale-125 group-hover:bg-[var(--color-arch-charcoal)]"></div>
+                            <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-[var(--color-arch-blue)] translate-x-1/2 translate-y-1/2 transition-all duration-300 group-hover:scale-125 group-hover:bg-[var(--color-arch-charcoal)]"></div>
+                            
+                            {/* Subtle Lateral Registration Marks */}
+                            <div className="absolute top-1/2 left-0 w-2 h-px bg-[var(--color-arch-blue)] -translate-x-full"></div>
+                            <div className="absolute top-1/2 right-0 w-2 h-px bg-[var(--color-arch-blue)] translate-x-full"></div>
+
+                            <div className="relative overflow-hidden bg-[var(--color-arch-bg)]">
+                                <img
+                                    src="/images/avatar.jpg"
+                                    alt="Meet Khunt"
+                                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                                    style={{ filter: "contrast(1.15) brightness(0.98) url(#arch-cyanotype)" }}
+                                />
+                                {/* Architectural Grid Watermark */}
+                                <div className="absolute inset-0 blueprint-grid-small opacity-15 pointer-events-none mix-blend-multiply"></div>
+                                
+                                {/* Technical Spec Tag */}
+                                <div className="absolute bottom-2 left-2 bg-[var(--color-arch-bg)] border border-[var(--color-arch-charcoal)] px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-[var(--color-arch-blue)] select-none">
+                                 // Meet Khunt
                                 </div>
                             </div>
+                        </div>
+                        <div className="absolute inset-0 bg-[var(--color-arch-blue)] translate-x-4 translate-y-4 border-arch -z-10 transition-transform duration-300 group-hover:translate-x-5 group-hover:translate-y-5"></div>
+                    </motion.div>
+                    
+                    <motion.div 
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        className="w-full md:w-2/3 flex flex-col justify-center"
+                    >
+                        <span className="font-mono text-xs uppercase tracking-widest text-[var(--color-arch-blue)] mb-4">
+                            // OVERVIEW
+                        </span>
+                        <p className="font-mono text-sm leading-loose text-[var(--color-arch-charcoal)] max-w-2xl">
+                            I’m Meet, a developer who enjoys figuring out how things work and turning ideas into real, working systems. I started out exploring cybersecurity and web development, and over time, my curiosity led me toward AI, data engineering, and automation.
+                            Today, I build things like AI-powered workflows, lead generation pipelines, data extraction tools, and APIs that solve practical problems. I enjoy experimenting with new technologies, breaking down complex challenges, and building projects from scratch to see how far an idea can go.
+                        </p>
+                    </motion.div>
+                </div>
 
-                            <div style={{ position: 'relative', minHeight: '600px', overflow: 'hidden' }}>
-                                <AnimatePresence mode="wait">
-                                    {currentSlide === 0 && (
-                                        <motion.div
-                                            key="slide-0"
-                                            initial={{ opacity: 0, x: 20 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            exit={{ opacity: 0, x: -20 }}
-                                            transition={{ duration: 0.3 }}
-                                        >
-                                            <div className="bento-grid">
-                                                {/* Hero Narrative */}
-                                                <div className="bento-col-7 bento-card bento-card-subtle">
-                                                    <h4 className="timeline-hero-title">
-                                                        2022–2023 
-                                                        <span className="timeline-hero-subtitle">Entering Cybersecurity & the Web</span>
-                                                    </h4>
-                                                    <div className="timeline-text">
-                                                        <p>I received my first laptop during my 10th standard vacation, which marked the real start of my technical journey. From a young age, I had a strong interest in technology, especially cybersecurity, so I began by exploring ethical hacking and penetration testing.</p>
-                                                        <p>During this period, I learned the fundamentals of web security and how websites function internally. I studied common vulnerabilities and security practices using frameworks like OWASP and worked with tools such as Burp Suite and Wireshark. To gain practical experience, I solved beginner-level labs and boxes on platforms like Hack The Box, TryHackMe, and PortSwigger.</p>
-                                                        <p>At the same time, I learned the basics of web development to better understand how applications are built. This included frontend and backend concepts, JavaScript, and React. This phase helped me build a strong technical foundation and develop problem-solving skills.</p>
-                                                    </div>
-                                                </div>
-                                                
-                                                {/* Right Stack */}
-                                                <div className="bento-col-5 bento-flex-stack">
-                                                    {/* Core Learnings - Dark Theme Bento */}
-                                                    <div className="bento-card bento-card-dark" style={{ flex: 1, position: 'relative', overflow: 'hidden' }}>
-                                                        <div style={{ position: 'absolute', top: 0, right: 0, marginTop: '-20px', marginRight: '-20px', width: '150px', height: '150px', backgroundColor: '#334155', opacity: 0.3, borderRadius: '50%', filter: 'blur(40px)' }}></div>
-                                                        <h5 className="icon-heading" style={{ position: 'relative', zIndex: 10 }}>
-                                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                                                            Key Learnings
-                                                        </h5>
-                                                        <ul className="timeline-list" style={{ position: 'relative', zIndex: 10 }}>
-                                                            <li><b>Web security & OWASP vulnerabilities</b></li>
-                                                            <li><b>Hands-on penetration testing</b></li>
-                                                            <li><b>Networking & web traffic analysis</b></li>
-                                                            <li><b>Web development fundamentals</b></li>
-                                                        </ul>
-                                                    </div>
+                {/* Technical Journey - Vertical Flow */}
+                <div className="relative border-l-arch pl-6 md:pl-12 ml-2 md:ml-0">
+                    {/* Phase 1 */}
+                    <motion.div 
+                        id="journey"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        className="mb-24 relative scroll-mt-32"
+                    >
+                        <div className="absolute -left-[29px] md:-left-[53px] top-1.5 w-3 h-3 bg-[var(--color-arch-charcoal)] outline outline-4 outline-[var(--color-arch-bg)]"></div>
+                        <span className="font-mono text-xs uppercase tracking-widest text-[var(--color-arch-blue)] mb-2 block">
+                            PHASE 01 // 2022-2023
+                        </span>
+                        <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-tight text-[var(--color-arch-charcoal)] mb-6">
+                            Cybersecurity & The Web
+                        </h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                            <div className="font-mono text-sm leading-relaxed text-[var(--color-arch-charcoal)] space-y-4">
+                                <p>My technical journey began with cybersecurity, exploring ethical hacking and penetration testing. I learned web security fundamentals, OWASP vulnerabilities, and internal website mechanics.</p>
+                                <p>I trained on Hack The Box, TryHackMe, and PortSwigger, using tools like Burp Suite and Wireshark. Simultaneously, I learned React and JavaScript to understand how these systems are built.</p>
+                            </div>
+                            <div className="border-arch p-6 bg-[var(--color-arch-bg)] shadow-[4px_4px_0_0_var(--color-arch-charcoal)]">
+                                <h4 className="font-mono text-xs uppercase tracking-widest font-bold border-b-arch pb-2 mb-4">Core Stack</h4>
+                                <ul className="font-mono text-xs space-y-2 uppercase">
+                                    <li>- OWASP Framework</li>
+                                    <li>- Burp Suite / Wireshark</li>
+                                    <li>- TryHackMe / Hack The Box</li>
+                                    <li>- React / JavaScript</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </motion.div>
 
-                                                    {/* Tools Bento */}
-                                                    <div className="bento-card" style={{ flex: 1 }}>
-                                                        <h5 className="icon-heading">
-                                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.6 }}><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                                                            Platforms Stack
-                                                        </h5>
-                                                        <div className="bento-tag-container">
-                                                            {["Hack The Box", <a href='https://tryhackme.com/p/DonatHack'>TryHackMe</a>, "PortSwigger", "Burp Suite", "Wireshark", "Nuclei","Scapy", "React", "JavaScript",<a href="https://pwn.college">pwn.college</a>,<a href="https://exploitnotes.org">exploitnotes.org</a>,<a href='https://sushant747.gitbooks.io/total-oscp-guide/content/'>Total-OSCP-Guide</a>].map(tool => (
-                                                                <span key={tool} className="bento-tag">{tool}</span>
-                                                            ))}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </motion.div>
-                                    )}
+                    {/* Phase 2 */}
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        className="mb-24 relative"
+                    >
+                        <div className="absolute -left-[29px] md:-left-[53px] top-1.5 w-3 h-3 bg-[var(--color-arch-charcoal)] outline outline-4 outline-[var(--color-arch-bg)]"></div>
+                        <span className="font-mono text-xs uppercase tracking-widest text-[var(--color-arch-blue)] mb-2 block">
+                            PHASE 02 // 2023-2024
+                        </span>
+                        <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-tight text-[var(--color-arch-charcoal)] mb-6">
+                            Real-World Automation
+                        </h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                            <div className="font-mono text-sm leading-relaxed text-[var(--color-arch-charcoal)] space-y-4">
+                                <p>Transitioning to production environments, I focused on web scraping, security bypass, and ETL pipelines. I learned how data moves securely at scale.</p>
+                                <p>During this period, I adopted Python backends (Flask, FastAPI) and explored machine learning basics to augment automation systems.</p>
+                            </div>
+                            <div className="border-arch p-6 bg-[var(--color-arch-charcoal)] text-[var(--color-arch-bg)] shadow-[4px_4px_0_0_var(--color-arch-blue)]">
+                                <h4 className="font-mono text-xs uppercase tracking-widest font-bold border-b border-[var(--color-arch-bg)] pb-2 mb-4">Competencies</h4>
+                                <ul className="font-mono text-xs space-y-2 uppercase">
+                                    <li>- Python (Flask / FastAPI)</li>
+                                    <li>- ETL Data Workflows</li>
+                                    <li>- Advanced Web Scraping</li>
+                                    <li>- Machine Learning Basics</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </motion.div>
 
-                                    {currentSlide === 1 && (
-                                        <motion.div
-                                            key="slide-1"
-                                            initial={{ opacity: 0, x: 20 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            exit={{ opacity: 0, x: -20 }}
-                                            transition={{ duration: 0.3 }}
-                                        >
-                                            <div className="bento-grid">
-                                                {/* Left Stack Projects */}
-                                                <div className="bento-col-5 bento-flex-stack">
-                                                    <div className="bento-card bento-card-subtle" style={{ flex: 1 }}>
-                                                        <h5 className="icon-heading">
-                                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.6 }}><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                                                            Core Deliverables
-                                                        </h5>
-                                                        <div className="bento-flex-stack" style={{ gap: '16px' }}>
-                                                            <div className="bento-card" style={{ padding: '16px', borderRadius: '12px', flex: 'none' }}>
-                                                                <strong style={{ display: 'block', marginBottom: '4px' }}>Locadata</strong> 
-                                                                <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Automatic dashboard analysis platform.</span>
-                                                            </div>
-                                                            <div className="bento-card" style={{ padding: '16px', borderRadius: '12px', flex: 'none' }}>
-                                                                <strong style={{ display: 'block', marginBottom: '4px' }}>Email & Maps Scraper</strong> 
-                                                                <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Automated structured data collection pipelines.</span>
-                                                            </div>
-                                                            <div className="bento-card" style={{ padding: '16px', borderRadius: '12px', flex: 'none' }}>
-                                                                <strong style={{ display: 'block', marginBottom: '4px' }}>Restaurant Chatbot</strong> 
-                                                                <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Built for high-volume customer interaction.</span>
-                                                            </div>
-                                                            <div className="bento-card" style={{ padding: '16px', borderRadius: '12px', flex: 'none' }}>
-                                                                <strong style={{ display: 'block', marginBottom: '4px' }}>Image Search</strong> 
-                                                                <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Also Built for high-volume customer interaction.</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                    {/* Phase 3 */}
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        className="relative"
+                    >
+                        <div className="absolute -left-[29px] md:-left-[53px] top-1.5 w-3 h-3 bg-[var(--color-arch-blue)] outline outline-4 outline-[var(--color-arch-bg)]"></div>
+                        <span className="font-mono text-xs uppercase tracking-widest text-[var(--color-arch-blue)] mb-2 block">
+                            PHASE 03 // 2024-PRESENT
+                        </span>
+                        <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-tight text-[var(--color-arch-charcoal)] mb-6">
+                            System & Product Engineering
+                        </h3>
+                        <div className="font-mono text-sm leading-relaxed text-[var(--color-arch-charcoal)] max-w-3xl mb-12">
+                            <p>Moving from isolated scripts to holistic product architectures. Designing edge inference systems, robust data collection platforms, and highly optimized pipelines.</p>
+                        </div>
 
-                                                {/* Hero Narrative Right */}
-                                                <div className="bento-col-7 bento-card" style={{ position: 'relative' }}>
-                                                    <h4 className="timeline-hero-title">
-                                                        2023–2024 <br/>
-                                                        <span className="timeline-hero-subtitle">Real-World Automation</span>
-                                                    </h4>
-                                                    <div className="timeline-text" style={{ marginBottom: '32px' }}>
-                                                        <p>Toward the end of 2023, I completed an internship where I worked on live projects and gained exposure to real-world development workflows. I explored web scraping, security bypass techniques, and data workflows used in production environments.</p>
-                                                        <p>I learned how ETL (Extract, Transform, Load) pipelines work and how data moves securely through systems. This period introduced me to python backend development frameworks such as Flask and FastAPI.</p>
-                                                        <p>After the internship, I continued exploring new areas independently, including basic machine learning and automation systems to strengthen my development skills.</p>
-                                                    </div>
-                                                    
-                                                    {/* Learnings embedded at the bottom */}
-                                                    <div style={{ paddingTop: '24px', borderTop: '1px solid var(--surface-border)', marginTop: 'auto' }}>
-                                                        <strong style={{ display: 'block', marginBottom: '16px', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Acquired Competencies</strong>
-                                                        <div className="bento-tag-container">
-                                                            <span className="bento-tag">Python (Flask/FastAPI)</span>
-                                                            <span className="bento-tag">Web Scraping</span>
-                                                            <span className="bento-tag">ETL Workflows</span>
-                                                            <span className="bento-tag">ML Basics</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </motion.div>
-                                    )}
-
-                                    {currentSlide === 2 && (
-                                        <motion.div
-                                            key="slide-2"
-                                            initial={{ opacity: 0, x: 20 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            exit={{ opacity: 0, x: -20 }}
-                                            transition={{ duration: 0.3 }}
-                                        >
-                                            <div className="bento-grid">
-                                                {/* Top Hero Full Width */}
-                                                <div className="bento-col-12 bento-card bento-card-dark bento-card-hero" style={{ position: 'relative', overflow: 'hidden' }}>
-                                                    <div style={{ position: 'absolute', top: 0, right: 0, width: '600px', height: '600px', backgroundColor: '#334155', opacity: 0.2, borderRadius: '50%', filter: 'blur(100px)', marginTop: '-150px', marginRight: '-150px', pointerEvents: 'none' }}></div>
-                                                    <h4 className="timeline-hero-title" style={{ position: 'relative', zIndex: 10, maxWidth: '80%' }}>
-                                                        2024–2025, 26 <br/>
-                                                        <span className="timeline-hero-subtitle" style={{ fontSize: '1.4rem', color: '#94a3b8', marginTop: '8px' }}>Building Systems & Product-Level Thinking</span>
-                                                    </h4>
-                                                    <div className="timeline-text" style={{ position: 'relative', zIndex: 10, maxWidth: '85%' }}>
-                                                        <p>This phase marked a transition from small tools to large, system-level projects. I began focusing on building complete products rather than isolated scripts.</p>
-                                                        <p>One of the major projects I started during this period was <strong style={{ color: '#fff', fontWeight: 500 }}>RakshaGrid</strong>, exploring how edge sensors, lidar, and ML interact with software, Explored Remote Sensing and monitoring,Monitor and render human using wifi. Later, the <strong style={{ color: '#fff', fontWeight: 500 }}>Image-to-Embroidery Converter</strong> taught me deep codebase optimization and cost mapping. Currently, I'm engineering a <strong style={{ color: '#fff', fontWeight: 500 }}>GIS Analysis Platform</strong> focused on large-scale data collection, storage, and processing.</p>
-                                                    </div>
-                                                </div>
-
-                                                {/* 3 Columns of Bento Projects */}
-                                                <div className="bento-col-4 bento-card bento-card-subtle">
-                                                    <h6 style={{ fontSize: '1.25rem', marginBottom: '12px' }}>RakshaGrid</h6>
-                                                    <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '24px' }}>Smart Home Monitoring System designed to track household safety using edge sensors and automation.</p>
-                                                    <div className="bento-tag-container">
-                                                        <span className="bento-tag">IoT Sensors</span>
-                                                        <span className="bento-tag">Hardware Integration</span>
-                                                    </div>
-                                                </div>
-
-                                                <div className="bento-col-4 bento-card bento-card-subtle">
-                                                    <h6 style={{ fontSize: '1.25rem', marginBottom: '12px' }}>EmroApi</h6>
-                                                    <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '24px' }}>A tool dynamically converting images into embroidery-ready system files, teaching me the cost of efficiency.</p>
-                                                    <div className="bento-tag-container">
-                                                        <span className="bento-tag">Optimization</span>
-                                                        <span className="bento-tag">Scalable Arch</span>
-                                                    </div>
-                                                </div>
-
-                                                <div className="bento-col-4 bento-card bento-card-subtle">
-                                                    <h6 style={{ fontSize: '1.25rem', marginBottom: '12px' }}>GIS Platform</h6>
-                                                    <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '24px' }}>Collecting and analyzing geographic data to generate deep, meaningful insights about local areas.</p>
-                                                    <div className="bento-tag-container">
-                                                        <span className="bento-tag">Data Warehousing</span>
-                                                        <span className="bento-tag">Pipelines</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
-                                
-                                {/* Slide Indicators */}
-                                <div className="slide-indicators-container">
-                                    {[0, 1, 2].map((idx) => (
-                                        <button
-                                            key={idx}
-                                            onClick={() => setCurrentSlide(idx)}
-                                            className={`slide-indicator ${currentSlide === idx ? 'active' : 'inactive'}`}
-                                            aria-label={`Go to slide ${idx + 1}`}
-                                        />
-                                    ))}
-                                </div>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div className="border-arch border-t-4 border-t-[var(--color-arch-blue)] p-6 bg-[var(--color-arch-bg)]">
+                                <h4 className="font-bold uppercase tracking-tight mb-3">RakshaGrid</h4>
+                                <p className="font-mono text-xs mb-4">Edge sensor mapping and privacy-first ML home monitoring.</p>
+                                <span className="font-mono text-[10px] bg-[var(--color-arch-charcoal)] text-[var(--color-arch-bg)] px-2 py-1 uppercase">IoT / Hardware</span>
+                            </div>
+                            <div className="border-arch border-t-4 border-t-[var(--color-arch-charcoal)] p-6 bg-[var(--color-arch-bg)]">
+                                <h4 className="font-bold uppercase tracking-tight mb-3">EmroAPI</h4>
+                                <p className="font-mono text-xs mb-4">Deep codebase optimization for real-time SVG to embroidery DST conversion.</p>
+                                <span className="font-mono text-[10px] border-arch px-2 py-1 uppercase font-bold">Optimization</span>
+                            </div>
+                            <div className="border-arch border-t-4 border-t-[var(--color-arch-charcoal)] p-6 bg-[var(--color-arch-bg)]">
+                                <h4 className="font-bold uppercase tracking-tight mb-3">GIS Platform</h4>
+                                <p className="font-mono text-xs mb-4">Large-scale data warehousing, geographic processing, and synthetic data gen.</p>
+                                <span className="font-mono text-[10px] border-arch px-2 py-1 uppercase font-bold">Data Pipelines</span>
                             </div>
                         </div>
                     </motion.div>
                 </div>
             </div>
-        </section >
+        </section>
     );
 };
 

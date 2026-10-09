@@ -19,7 +19,7 @@ const SEO = ({ title, description, url, image, type = 'website', jsonLd }) => {
             "https://github.com/meetkhunt",
             "https://twitter.com/meetkhunt_59"
         ],
-        "jobTitle": "Founder & Tech Innovator",
+        "jobTitle": " Tech Innovator",
         "worksFor": [
             {
                 "@type": "Organization",
